@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Angora</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+
+        /* ================= HOME ================= */
+
+        .hero {
+            height: 100vh;
+            width: 100%;
+
+            background-image:
+                linear-gradient(
+                    rgba(8, 25, 48, 0.55),
+                    rgba(8, 25, 48, 0.35)
+                ),
+                url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 95px;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 11%;
+
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+
+            background: rgba(20, 42, 70, 0.35);
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            color: white;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+
+            border: 3px solid white;
+
+            transform: rotate(30deg);
+
+            position: relative;
+        }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            background: white;
+        }
+
+        .logo-icon::before {
+            width: 3px;
+            height: 25px;
+
+            left: 12px;
+            top: 1px;
+        }
+
+        .logo-icon::after {
+            width: 25px;
+            height: 3px;
+
+            left: 1px;
+            top: 12px;
+        }
+
+        /* MENU */
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+
+            margin-left: auto;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f44336;
+        }
+
+        /* SOCIAL */
+
+        .social {
+            display: flex;
+            gap: 25px;
+
+            margin-left: 40px;
+        }
+
+        .social a {
+            color: white;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .social a:hover {
+            color: #f44336;
+        }
+
+        /* ================= CENTER CONTENT ================= */
+
+        .content {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -30%);
+
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 74px;
+            line-height: 1.02;
+
+            font-weight: 700;
+
+            letter-spacing: -2px;
+
+            color: white;
+        }
+
+        /* ================= ARROWS ================= */
+
+        .arrows {
+            position: absolute;
+
+            left: 0;
+            top: 45%;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arrow {
+            width: 36px;
+            height: 54px;
+
+            border: 1px solid rgba(255,255,255,0.5);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .arrow:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* ================= SETTINGS ================= */
+
+        .settings {
+            position: absolute;
+
+            left: 0;
+            top: 20%;
+
+            width: 44px;
+            height: 44px;
+
+            background: #222;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+        /* ================= SCROLL ================= */
+
+        .scroll {
+            position: absolute;
+
+            bottom: 35px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 28px;
+            height: 42px;
+
+            border: 2px solid rgba(255,255,255,0.6);
+
+            border-radius: 20px;
+        }
+
+        .scroll::before {
+            content: "";
+
+            position: absolute;
+
+            width: 4px;
+            height: 8px;
+
+            background: white;
+
+            border-radius: 5px;
+
+            left: 10px;
+            top: 7px;
+        }
+
+
+        /* ================= COMMON SECTION ================= */
+
+        .section {
+            width: 100%;
+
+            padding: 90px 12%;
+
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+
+            font-weight: 700;
+
+            color: #222;
+
+            margin-bottom: 18px;
+        }
+
+        .section-title .line {
+            width: 45px;
+            height: 2px;
+
+            background: #f4435b;
+
+            margin: auto;
+        }
+
+        .section-title p {
+            max-width: 760px;
+
+            margin: 25px auto 0;
+
+            color: #999;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= ABOUT US ================= */
+
+        .about {
+            min-height: 650px;
+        }
+
+        .about-content {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .about-text p {
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skill {
+            margin-bottom: 28px;
+        }
+
+        .skill-title {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #444;
+        }
+
+        .skill-bar {
+            width: 100%;
+
+            height: 4px;
+
+            background: #eee;
+
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 4px;
+
+            background: #f4435b;
+        }
+
+        .branding {
+            width: 80%;
+        }
+
+        .web {
+            width: 70%;
+        }
+
+        .graphic {
+            width: 68%;
+        }
+
+        .development {
+            width: 65%;
+        }
+
+
+        /* ================= OUR TEAM ================= */
+
+        .team {
+            background: #fafafa;
+        }
+
+        .team-container {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .team-card {
+            background: white;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .team-image {
+            width: 100%;
+
+            height: 280px;
+
+            overflow: hidden;
+
+            background: #eee;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            transition: 0.4s;
+        }
+
+        .team-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .team-card h3 {
+            font-size: 18px;
+
+            margin-top: 20px;
+
+            color: #333;
+        }
+
+        .team-card p {
+            color: #999;
+
+            font-size: 13px;
+
+            margin: 8px 0 22px;
+        }
+
+
+        /* ================= PROJECTS ================= */
+
+        .projects {
+            background: white;
+        }
+
+        .projects-container {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+
+            border: 1px solid #eee;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .project-image {
+            width: 100%;
+
+            height: 230px;
+
+            overflow: hidden;
+
+            background: #eee;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            transition: 0.4s;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 19px;
+
+            margin-bottom: 10px;
+
+            color: #333;
+        }
+
+        .project-info p {
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #888;
+        }
+
+        .project-tag {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: #f4435b;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #222;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .menu {
+                gap: 18px;
+            }
+
+            .social {
+                gap: 12px;
+
+                margin-left: 20px;
+            }
+
+            .content h1 {
+                font-size: 55px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .team-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                padding: 0 25px;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .social {
+                margin-left: auto;
+            }
+
+            .content h1 {
+                font-size: 45px;
+            }
+
+            .section {
+                padding: 70px 25px;
+            }
+
+            .team-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon"></div>
+
+            <span>ANGORA</span>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#team">Team</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#">Services</a>
+
+            <a href="#">Blog</a>
+
+            <a href="#">Store</a>
+
+            <a href="#">Contact</a>
+
+        </div>
+
+
+        <div class="social">
+
+            <a href="#">X</a>
+
+            <a href="#">f</a>
+
+            <a href="#">◎</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="settings">
+        ⚙
+    </div>
+
+
+    <div class="arrows">
+
+        <div class="arrow">‹</div>
+
+        <div class="arrow">›</div>
+
+    </div>
+
+
+    <div class="content">
+
+        <h1>
+            We build<br>
+            great brands.
+        </h1>
+
+    </div>
+
+
+    <div class="scroll"></div>
+
+</section>
+
+
+
+<!-- ================= ABOUT US ================= -->
+
+<section class="section about" id="about">
+
+    <div class="section-title">
+
+        <h2>About Us</h2>
+
+        <div class="line"></div>
+
+        <p>
+            Pellentesque elementum libero enim, eget gravida nunc laoreet et.
+            Nullam ac enim auctor, fringilla risus at, imperdiet turpis.
+            Pellentesque elementum libero enim.
+        </p>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <div class="about-text">
+
+            <p>
+                Pellentesque vel elit egestas, pretium est ac, convallis orci.
+                Vivamus sem nisl, tristique vel fringilla vitae, efficitur at eros.
+                Duis aliquet aliquet pharetra.
+            </p>
+
+            <p>
+                Suspendisse bibendum erat quis gravida pulvinar.
+                Phasellus vel eros porta, blandit dui ac, viverra felis.
+            </p>
+
+            <p>
+                Nunc placerat iaculis pulvinar. Nullam auctor mauris sed urna
+                posuere volutpat. Mauris ut dui sit amet elit fermentum fermentum.
+            </p>
+
+            <p>
+                Aliquam nunc felis, sagittis et purus non, interdum vehicula urna.
+                Vivamus congue diam sapien, eu pellentesque ipsum ultricies quis.
+            </p>
+
+        </div>
+
+
+        <div class="skills">
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Branding</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress branding"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Web Design</span>
+                    <span>70%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress web"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Graphic Design</span>
+                    <span>68%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress graphic"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Development</span>
+                    <span>65%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress development"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= OUR TEAM ================= -->
+
+<section class="section team" id="team">
+
+    <div class="section-title">
+
+        <h2>Our Team</h2>
+
+        <div class="line"></div>
+
+        <p>
+            Meet our creative and talented team members who work together
+            to create beautiful digital experiences.
+        </p>
+
+    </div>
+
+
+    <div class="team-container">
+
+
+        <div class="team-card">
+
+            <div class="team-image">
+
+                <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="Anna Smith"
+                >
+
+            </div>
+
+            <h3>Anna Smith</h3>
+
+            <p>Creative Director</p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+            <div class="team-image">
+
+                <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="Michael Doe"
+                >
+
+            </div>
+
+            <h3>Michael Doe</h3>
+
+            <p>Web Developer</p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+            <div class="team-image">
+
+                <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="Sarah Williams"
+                >
+
+            </div>
+
+            <h3>Sarah Williams</h3>
+
+            <p>Graphic Designer</p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+            <div class="team-image">
+
+                <img
+                    src="https://randomuser.me/api/portraits/men/75.jpg"
+                    alt="John Martin"
+                >
+
+            </div>
+
+            <h3>John Martin</h3>
+
+            <p>Project Manager</p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RECENT PROJECTS ================= -->
+
+<section class="section projects" id="projects">
+
+    <div class="section-title">
+
+        <h2>Recent Projects</h2>
+
+        <div class="line"></div>
+
+        <p>
+            Here are some of our recent creative projects designed with
+            modern ideas and simple user experiences.
+        </p>
+
+    </div>
+
+
+    <div class="projects-container">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
+                    alt="Business Website"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Business Website</h3>
+
+                <p>
+                    A modern and clean website created for a professional
+                    business brand.
+                </p>
+
+                <span class="project-tag">
+                    Web Design
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=80"
+                    alt="Mobile Application"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Mobile Application</h3>
+
+                <p>
+                    A simple and attractive mobile application interface
+                    designed for a better user experience.
+                </p>
+
+                <span class="project-tag">
+                    App Design
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80"
+                    alt="Creative Branding"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Creative Branding</h3>
+
+                <p>
+                    Complete visual branding created with a clean and
+                    modern design approach.
+                </p>
+
+                <span class="project-tag">
+                    Branding
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Angora. All Rights Reserved.
+
+</footer>
+
+
+</body>
+</html>
